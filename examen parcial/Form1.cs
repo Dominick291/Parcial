@@ -21,6 +21,7 @@ namespace examen_parcial
         List<Alumnos> alumnos = new List<Alumnos>();
         List<Talleres> talleres = new List<Talleres>();
         List<Inscripciones> inscripciones = new List<Inscripciones>();
+        List<Reporte> reportes = new List<Reporte>();
 
 
         public void CargarAlumnos()
@@ -78,8 +79,7 @@ namespace examen_parcial
             CargarAlumnos();
             cargarTalleres();
         }
-
-        private void buttonGuardar_Click(object sender, EventArgs e)
+        public void guardarInscripciones()
         {
             Inscripciones inscripcioness = new Inscripciones();
 
@@ -87,9 +87,68 @@ namespace examen_parcial
             inscripcioness.CodTaller = Convert.ToInt32(textBox1.Text);
             inscripcioness.Fecha = DateTime.Now;
 
+            inscripciones.Add(inscripcioness);
+        }
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+            guardarInscripciones();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = inscripciones;
             dataGridView1.Refresh();
+
+            datos();
+        }
+
+        private void buttonOrdenar_Click(object sender, EventArgs e)
+        {
+            dataGridView3.DataSource = null;
+            dataGridView3.Rows.Clear();
+            dataGridView3.Columns.Clear();
+            dataGridView3.Refresh();
+            dataGridView3.DataSource = "";
+
+            Reporte reporte = reportes.OrderByDescending(a => a.Nombre).First();
+            reportes.Clear();
+            reportes.Add(reporte);
+
+
+            dataGridView3.DataSource = null;
+            dataGridView3.DataSource = reportes;
+            dataGridView3.Refresh();
+
+        }
+        public void datos()
+        {
+            
+
+            foreach (Alumnos alumnoss in alumnos)
+            {
+                foreach (Talleres talleress in talleres)
+                {
+                    foreach (Inscripciones inscripcioness in inscripciones)
+                    {
+                        
+                        if (alumnoss.Dpi == inscripcioness.DpiAlumnos)
+                        {
+                            Reporte reporte = new Reporte();
+                            reporte.Nombre = alumnoss.Nombre;
+                            reporte.Teller = talleress.NombreTaller;
+
+
+
+                            reportes.Add(reporte);
+                        }
+                    }
+                    
+                    
+                }
+            }
+
+            dataGridView3.DataSource = null;
+            dataGridView3.DataSource = reportes;
+            dataGridView3.Refresh();
+
         }
     }
 }

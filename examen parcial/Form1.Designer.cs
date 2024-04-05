@@ -36,8 +36,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.buttonOrdenar = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -53,9 +58,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(448, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(448, 33);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(323, 160);
+            this.dataGridView1.Size = new System.Drawing.Size(441, 160);
             this.dataGridView1.TabIndex = 1;
             // 
             // buttonGuardar
@@ -111,12 +116,53 @@
             this.textBox1.Size = new System.Drawing.Size(279, 20);
             this.textBox1.TabIndex = 7;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(445, 228);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 18);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Datos";
+            // 
+            // buttonOrdenar
+            // 
+            this.buttonOrdenar.Location = new System.Drawing.Point(582, 422);
+            this.buttonOrdenar.Name = "buttonOrdenar";
+            this.buttonOrdenar.Size = new System.Drawing.Size(189, 42);
+            this.buttonOrdenar.TabIndex = 10;
+            this.buttonOrdenar.Text = "Ordenar alfabeticamente";
+            this.buttonOrdenar.UseVisualStyleBackColor = true;
+            this.buttonOrdenar.Click += new System.EventHandler(this.buttonOrdenar_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(448, 259);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(441, 150);
+            this.dataGridView3.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 487);
+            this.ClientSize = new System.Drawing.Size(918, 495);
+            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.buttonOrdenar);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -130,6 +176,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,6 +192,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonOrdenar;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }
 
