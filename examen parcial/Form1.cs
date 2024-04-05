@@ -37,9 +37,14 @@ namespace examen_parcial
                 alumnoss.Nombre = reader.ReadLine();
                 alumnoss.Direccion = reader.ReadLine();
 
-
+                alumnos.Add(alumnoss);
             }
             reader.Close();
+
+            comboBoxAlumnos.DisplayMember = "Nombre";
+            comboBoxAlumnos.ValueMember = "Dpi";
+            comboBoxAlumnos.DataSource = alumnos;
+            comboBoxAlumnos.Refresh();
         }
 
         public void cargarTalleres()
@@ -56,8 +61,13 @@ namespace examen_parcial
                 talleress.NombreTaller = reader.ReadLine();
                 talleress.Costo = Convert.ToDecimal(reader.ReadLine());
 
+                talleres.Add(talleress);
             }
             reader.Close();
+
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = talleres;
+            dataGridView2.Refresh();
         }
 
 
@@ -69,5 +79,17 @@ namespace examen_parcial
             cargarTalleres();
         }
 
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+            Inscripciones inscripcioness = new Inscripciones();
+
+            inscripcioness.DpiAlumnos = Convert.ToInt32(comboBoxAlumnos.SelectedValue);
+            inscripcioness.CodTaller = Convert.ToInt32(textBox1.Text);
+            inscripcioness.Fecha = DateTime.Now;
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = inscripciones;
+            dataGridView1.Refresh();
+        }
     }
 }
